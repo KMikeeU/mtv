@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Transformation Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="options">
+        <div class="templates">
+            <div class="template">
+                <label for="">Rotation</label>
+
+                <input type="text" id="input-angle" placeholder="Angle (deg)" value="90">
+                
+                <br><a onclick="
+                    options.addMatrix(
+                        Matrix.getRotate(
+                            parseInt(document.querySelector('#input-angle').value)
+                        )
+                    )
+                "> + Add</a>
+            </div>
+            <div class="template">
+                <label for="">Scale</label>
+                <input type="text" id="input-x-scale" placeholder="x-Scale" value="1">
+                <input type="text" id="input-y-scale" placeholder="y-Scale" value="1">
+                
+                <br><a onclick="
+                    options.addMatrix(
+                        Matrix.getScale(
+                            parseInt(document.querySelector('#input-x-scale').value),
+                            parseInt(document.querySelector('#input-y-scale').value)
+                        )
+                    )
+                "> + Add</a>
+            </div>
+            <div class="template">
+                <label for="">Translate</label>
+                <input type="text" id="input-x-translate" placeholder="x-Translate" value="0">
+                <input type="text" id="input-y-translate" placeholder="y-Translate" value="0">
+                
+                <br><a onclick="
+                    options.addMatrix(
+                        Matrix.getTranslate(
+                            parseInt(document.querySelector('#input-x-translate').value),
+                            parseInt(document.querySelector('#input-y-translate').value)
+                        )
+                    )
+                "> + Add</a>
+            </div>
+        </div>
+        <div class="matrices">
+            <div class="matrices-list">
+
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <canvas id="main" width="1600" height="800"></canvas>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
